@@ -16,14 +16,14 @@ html {
 
 /* makes the sidebar static on medium-sized screens */
 @media (min-width: 992px) {
-    #bt-aside {
+    #sidebar {
         position: sticky;
         top: 12%;
     }
 }
 
 /* background image and z-index layer for the main body */
-#main {
+#main-text-body {
     background-image: url("../res/bg.jpg");
     background-size: cover;
     z-index: 1;
@@ -36,6 +36,7 @@ html {
     z-index: 2;
 }
 
+/* used to make the footer fixed at the bottom */
 #main-footer {
     position: fixed;
     bottom: 0;

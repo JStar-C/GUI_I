@@ -51,7 +51,7 @@
     crossorigin="anonymous">
     </script>
 
-    <!-- CSS style sheet to override Bootstrap -->
+    <!-- CSS style sheet to override Bootstrap if neccesary -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
 </head>
@@ -75,9 +75,11 @@
         </nav>
 
         <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-3 col-md-push-9 text-left" id="bt-aside">
-                    <div class="btn-group-vertical center-block" role="group" aria-label="test">
+
+            <div class="row"> <!-- sidebar and main-text-body on same row -->
+                <!-- using push-9 to to move the sidebar to the right -->
+                <div class="col-xs-12 col-sm-12 col-md-3 col-md-push-9 text-left" id="sidebar">
+                    <div class="btn-group-vertical center-block" role="group" aria-label="assignments">
                         <button type="button" class="btn btn-default"><a href="#" target="_blank">Assignment I</a></button>
                         <button type="button" class="btn btn-default"><a href="http://cs.uml.edu/~jcalles/" target="_blank">Assignment II</a></button>
                         <button type="button" class="btn btn-default"><a href="http://cs.uml.edu/~jcalles/HW3/index.html" target="_blank">Assignment III</a></button>
@@ -88,7 +90,9 @@
                         <br>
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-12 col-md-9 col-md-pull-3 text-left" id="main">
+
+                <!-- using pull-3 to to move the main-text-body to the left -->
+                <div class="col-xs-12 col-sm-12 col-md-9 col-md-pull-3 text-left" id="main-text-body">
                     <article>
                         <h2><center><b><i>Hello, World!</i></b></center></h2>
                         <section>
@@ -128,8 +132,9 @@
                     </article>
                     <br><br>
                 </div>
-            </div>
-            <div class="row" id="main-footer">
+            </div> <!-- main text body -->
+
+            <div class="row" id="main-footer"> <!-- blue background, using media class for picture and text -->
                 <div class="col-xs-12 center-block bg-primary">
                     <div class="media-body">
                         <center>Copyright &copy; 2020 by Joseph Calles, all rights reserved.</center>
@@ -142,8 +147,9 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+
+        </div> <!-- main body -->
+    </div> <!-- page div -->
 
     <!-- Bootstrap core JavaScript -->
     <!-- Placed at the end of the document so the pages load faster -->
