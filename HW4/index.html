@@ -1,0 +1,147 @@
+<!--
+    Joseph Calles
+    University of Massachusetts --Lowell
+    COMP.4610-201 HW4 Fall 2020
+    Filename: /~jcalles/HW4/index.html
+    Email: joseph_calles@student.uml.edu
+    Copyright (c) 2020 by Josph Calles. All rights reserved. May be freely
+    copied or excerpted for educational purposes with credit to the author.
+    File created on 10/14/2020.
+    Used as the homepage for HW4
+-->
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- The above 3 meta tags *must* come first in the head; 
+        any other head content must come *after* these tags -->
+    <meta name="author" content="Joseph Calles">
+    <meta name="description" content="COMP.4610-201 HW4">
+    <meta name="organization" content="UMass Lowell">
+    <meta name="keywords" content="UML, HTML5, CSS3, COMP.4610, Bootstrap
+        GUI, CS, UMass Lowell, Computer Science, web development">
+
+    <title>JCalles' Homepage</title>
+
+    <link rel="icon" href="res/icon.ico" type="image/x-icon"> <!-- tab icon -->
+
+    <!-- Bootstrap -->
+    <link 
+    rel="stylesheet" 
+    href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" 
+    integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" 
+    crossorigin="anonymous"
+    />
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script 
+    src="https://code.jquery.com/jquery-1.12.4.min.js" 
+    integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" 
+    crossorigin="anonymous">
+    </script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script 
+    src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" 
+    integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" 
+    crossorigin="anonymous">
+    </script>
+
+    <!-- CSS style sheet to override Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="page-header center-block"> <!-- header -->
+            <h1><strong><center>Welcome to my Homepage!</center></strong></h1>
+            <img src="res/banner.jpg" class="img-responsive center-block" style="border:5px solid black">
+            <h1><strong><center>COMP.4610-201 Graphical User Interface Programming I HW4</center></strong></h1>
+        </div>
+
+        <nav class="navbar navbar-default" id="navigation"> <!-- navbar -->
+            <div class="container">
+                <ul class="nav nav-pills nav-justified pull-left">
+                    <li role="presentation"><a href="https://lowell.umassonline.net/webapps/blackboard/execute/modulepage/view?course_id=_19359_1&cmp_tab_id=_31464_1&mode=view" target="_blank"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> Blackboard</a></li>
+                    <li role="presentation"><a href="https://piazza.com/class/kejdih9yz1z5s6" target="_blank"><span class="glyphicon glyphicon glyphicon-send" aria-hidden="true"></span> Piazza</a></li>
+                    <li role="presentation"><a href="https://www.w3schools.com/" target="_blank"><span class="glyphicon glyphicon-education" aria-hidden="true"></span> W3Schools</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-3 col-md-push-9 text-left" id="bt-aside">
+                    <div class="btn-group-vertical center-block" role="group" aria-label="test">
+                        <button type="button" class="btn btn-default"><a href="#" target="_blank">Assignment I</a></button>
+                        <button type="button" class="btn btn-default"><a href="http://cs.uml.edu/~jcalles/" target="_blank">Assignment II</a></button>
+                        <button type="button" class="btn btn-default"><a href="http://cs.uml.edu/~jcalles/HW3/index.html" target="_blank">Assignment III</a></button>
+                        <button type="button" class="btn btn-primary"><a href="#" target="_blank" style="color:white">Assignment IV</a></button>
+                        <button type="button" class="btn btn-default"><a href="#" target="_blank">Assignment V</a></button>
+                        <button type="button" class="btn btn-default"><a href="#" target="_blank">Assignment VI</a></button>
+                        <button type="button" class="btn btn-default"><a href="#" target="_blank">Assignment VII</a></button>
+                        <br>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-9 col-md-pull-3 text-left" id="main">
+                    <article>
+                        <h2>Hello, World!</h2>
+                        <section>
+                            <h3>About me</h3>
+                            <p>Hello! My name is Joseph Calles; I am a senior Computer Science student at the University of Massachusetts.
+                                I grew up in Texas where I was homeschooled my whole life until attending college. I moved to Massachusetts in autumn 2017 and I began at UML a year later.
+                            </p>
+                        </section>
+                        <hr>
+                        <section>
+                            <h3>My experience</h3>
+                            <p>Coursework:</p>
+                            <ul id="courses">
+                                <li>Computing I-IV</li>
+                                <li>Calculus I-III</li>
+                                <li>Assembly + Architecture</li>
+                                <li>Logic Design</li>
+                                <li>Organization of Programming Languages (OPL)</li>
+                            </ul>
+            
+                            <p>Other relevant experience: </p>
+                            <ul id="other">
+                                <li>I am a peer tutor at the Centers for Learning and Academic Student Success (CLASS). See the <a href="https://www.uml.edu/class/tutoring/tutor-schedule/" target="_blank">tutoring schedule</a> to find me!</li>
+                                <li>I am the Chair of the Community Service Committee of the UMass Lowell Chapter of Omicron Delta Kappa.</li>
+                                <li>I am an part-time intern at HCL America Inc. </li>
+                            </ul>
+            
+                            <p>See my resume: <button type="button" class="btn btn-default"><a href="res/J_Calles_UML.pdf" target="_blank">Click here</a></button></p>
+                        </section>
+                        <hr>
+                        <section>
+                            <h3>The future</h3>
+                            <p>
+                                After graduation, I will work in the CS industry, but continue part-time as an academic. I hope to pursue a master's degree while perhaps working as an adjunct professor. 
+                            </p>
+                        </section>
+                    </article>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 center-block">
+                    Copyright &copy; 2020 by Joseph Calles, all rights reserved.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>

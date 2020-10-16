@@ -1,0 +1,37 @@
+/*
+    Joseph Calles
+    University of Massachusetts --Lowell
+    COMP.4610-201 HW4 Fall 2020
+    Filename: /~jcalles/HW4/css/style.css
+    Email: joseph_calles@student.uml.edu
+    Copyright (c) 2020 by Josph Calles. All rights reserved. May be freely
+    copied or excerpted for educational purposes with credit to the author.
+    File created on 10/14/2020.
+    Used for index.html for HW4
+*/
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* makes the sidebar static on medium-sized screens */
+@media (min-width: 992px) {
+    #bt-aside {
+        position: sticky;
+        top: 12%;
+    }
+}
+
+/* background image and z-index layer for the main body */
+#main {
+    background-image: url("../res/bg.jpg");
+    background-size: cover;
+    z-index: 1;
+}
+
+/* makes the navbar static in the foreground */
+#navigation {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
