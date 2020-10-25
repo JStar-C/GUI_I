@@ -1,0 +1,84 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *  Joseph Calles
+ *  University of Massachusetts --Lowell
+ *  COMP.4610-201 HW5 Fall 2020
+ *  Filename: https://jstar-c.github.io/GUI_I/HW5/res/style.css
+ *  Email: joseph_calles@student.uml.edu
+ *  Copyright (c) 2020 by Josph Calles. All rights reserved. May be freely
+ *      copied or excerpted for educational purposes with credit to the author.
+ *  File created on 10/20/2020.
+ *  CSS file for HW5 Interactive Dynamic Table
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+html {
+    scroll-behavior: smooth;
+}
+
+#table-placeholder {
+    height: 300px;
+    overflow: scroll;
+    scroll-behavior: smooth;
+}
+
+table { 
+    border-collapse: separate;
+    border-spacing: 3px;
+    table-layout: auto;
+    border: 1px solid silver;
+}
+
+/* column headers */
+th {
+    padding: 2px;  
+    position: sticky;
+    text-align: center;
+}
+
+/* data entries */
+td {
+    margin: 5px;
+    padding: 2px;  
+    width: 5em;
+    text-align: center;
+    border: 3px inset silver;
+    background-color: rgba(245,245,245,1);
+}
+
+/* data entries on-hover */
+td:hover {
+    background-image: none;
+    background-color: #337ab7;
+    color: white;
+}
+
+/* row headers */
+td:first-child {
+    position: sticky;
+    padding: 2px;  
+    text-align: right;
+    font-weight: bold;
+    border: none;
+    background-image: none;
+    background-color:transparent;
+    width: 1em;
+}
+
+/* prevent row headers from being affected on-hover */
+td:hover:first-child {
+    background-image: none;
+    background-color:transparent;
+    color: black;
+    font-weight: bold;
+}
+
+/* stripped columns  */
+td:nth-child(even) {
+    background-color:rgba(225,225,225,1);
+}
+
+/* enable hover effect of colored columns */
+td:hover:nth-child(even) {
+    background-image: none;
+    background-color: #337ab7;
+    color: white;
+}
