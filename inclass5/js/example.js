@@ -1,4 +1,5 @@
 // Joseph Calles inclass5
+// view online @ https://jstar-c.github.io/GUI_I/inclass5/example.html
 
     // since the <ul> tag did not have an ID, use getElementsbyTagName()
 let ul = document.getElementsByTagName("ul")[0];
