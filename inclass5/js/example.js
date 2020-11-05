@@ -5,6 +5,7 @@
 let ul = document.getElementsByTagName("ul")[0];
 let newItem, li_count, h2;
 
+
 // ADD NEW ITEM TO END OF LIST ------------------------------------------------
 
 newItem = document.createElement("li");
