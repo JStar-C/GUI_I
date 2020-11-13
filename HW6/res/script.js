@@ -23,15 +23,29 @@ var x_start, y_start, x_end, y_end; // table bounds
 $.validator.messages.required = 'Please enter some value';
 $.validator.messages.digits   = 'Please enter only digits';
 $.validator.messages.number   = 'Please enter a number';
+$.validator.messages.range    = 'Values must be in range (-100, 100)';
 
+// a method to check if the X axis is properly ordered
+jQuery.validator.addMethod("OrderedXAxis", function(value, element) {
+        return x_start > x_end ? true : false;
+    }, "Warning: the columns appear out-of-order");
+
+// a method to check if the Y axis is properly ordered
+jQuery.validator.addMethod("OrderedYAxis", function(value, element) {
+        return y_start > y_end ? true : false;
+    }, "Warning: the rows appear out-of-order");
+  
 $("#my-form").validate({
     rules: {
         y_start, y_end, x_start, x_end: {
-            required : true,
-            number : true,
-            digits : true,
-            min : -100,
-            max : 100
+            required : true,       // all inputs are required
+            number : true,        // all inputs must be numbers
+            digits : true,       // all inputs must be digits
+            range : [-100, 100] // all inputs must fall in the range
+        },
+        warnings: {
+            OrderedXAxis : true, // custom addMethod calls 
+            OrderedYAxis : true  //   for checking order of values
         }
     }
 });
