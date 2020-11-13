@@ -12,12 +12,11 @@
 
 import "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js";
 import "https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js";
-import "https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js";
 
-var errorIsUp = false;    // invalid input error label
+var errorIsUp    = false; // invalid input error label
 var warningXIsUp = false; // x-axis warning label
 var warningYIsUp = false; // y-axis warning label
-var x_start, y_start, x_end, y_end;  // table bounds
+var x_start, y_start, x_end, y_end; // table bounds
 
 // source: https://stackoverflow.com/a/10180618
 // Apr 16 '12 at 19:47 Josh
@@ -38,7 +37,7 @@ $("#my-form").validate({
 });
 
 // capture the form and see when the user clicks the 'submit' button
-//$("#submission").click(getVariables);
+$("#submission").click(getVariables);
 
 /*
  * called when the user clicks the 'submit' button.
@@ -54,10 +53,17 @@ function getVariables(e)
     let userInput;  // used to hold the user's input as a string until it can be parsed
 
     // capture variables from input
-    y_start = parseInt($("#y_start").val());
-    y_end   = parseInt($("#y_end"  ).val());
-    x_start = parseInt($("#x_start").val());
-    x_end   = parseInt($("#x_end"  ).val());
+    userInput = $("#y_start").val();
+    y_start = (userInput.includes("e") || userInput.includes("E")) ? undefined : parseInt(userInput);
+
+    userInput = $("#y_end"  ).val();
+    y_end   = (userInput.includes("e") || userInput.includes("E")) ? undefined : parseInt(userInput);
+
+    userInput = $("#x_start").val(); 
+    x_start = (userInput.includes("e") || userInput.includes("E")) ? undefined : parseInt(userInput);
+
+    userInput = $("#x_end"  ).val();
+    x_end   = (userInput.includes("e") || userInput.includes("E")) ? undefined : parseInt(userInput);
 
     console.log(`user inputs: row(${y_start}-${y_end}) column(${x_start}-${x_end})`);
 
