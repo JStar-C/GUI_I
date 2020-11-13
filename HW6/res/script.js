@@ -30,6 +30,7 @@ $("#my-form").validate({
         y_start, y_end, x_start, x_end: {
             required : true,
             number : true,
+            digits : true,
             min : -100,
             max : 100
         }
@@ -37,7 +38,7 @@ $("#my-form").validate({
 });
 
 // capture the form and see when the user clicks the 'submit' button
-$("#submission").click(getVariables);
+//$("#submission").click(getVariables);
 
 /*
  * called when the user clicks the 'submit' button.
@@ -77,7 +78,6 @@ function getVariables(e)
  */
 function check_for_validity() 
 {
-    $("#my-form").validate();
     let validity = true; // initialze validity as true unless invalidated
 
     if (!Number.isInteger(y_start)) { // check validity of row top
