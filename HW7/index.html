@@ -1,0 +1,120 @@
+<!-- ---------------------------------------------------------------------- --
+  - Joseph Calles
+  - University of Massachusetts --Lowell
+  - COMP.4610-201 HW6 Fall 2020
+  - Filename: https://jstar-c.github.io/GUI_I/HW6/index.html
+  - Email: joseph_calles@student.uml.edu
+  - Copyright (c) 2020 by Josph Calles. All rights reserved. May be freely
+  -     copied or excerpted for educational purposes with credit to the author.
+  - File created on 11/10/2020.
+  - HTML file for HW6 Interactive Dynamic Table
+  -- ---------------------------------------------------------------------- -->
+
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Joseph Calles">
+    <meta name="description" content="COMP.4610-201 HW6">
+    <meta name="organization" content="UMass Lowell">
+    <meta name="keywords" content="UML, HTML5, CSS3, COMP.4610, Bootstrap, JS,
+        JavaScript, GUI, CS, UMass Lowell, Computer Science, web development">
+
+    <title>HW6 Interactive Dynamic Table</title>
+
+    <link rel="icon" href="res/hex_grid.png" type="image/x-icon"> <!-- tab icon -->
+    
+    <!-- Bootstrap -->
+    <link 
+    rel="stylesheet" 
+    href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" 
+    integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" 
+    crossorigin="anonymous" 
+    />
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script 
+    src="https://code.jquery.com/jquery-1.12.4.min.js" 
+    integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" 
+    crossorigin="anonymous">
+    </script>
+
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script 
+    src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" 
+    integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" 
+    crossorigin="anonymous">
+    </script>
+
+    <!-- CSS style sheet to override Bootstrap if neccesary -->
+    <link rel="stylesheet" type="text/css" href="res/style.css">
+</head>
+
+<body>
+
+    <!-- the inputs panel at the top of the page -->
+    <div class="container">
+        <div class="well">                
+            <div class="row">
+                <div class="col-xs-10 col-xs-push-1">
+                    <form class="form-horizontal" id="my-form">
+
+                        <div class="form-group"> <!-- y-axis start number -->
+                            <label for="yStart" class="col-xs-6 control-label">Row top</label>
+                            <div class="col-xs-6">
+                                <input type="number" class="form-control inputs" id="y_start" placeholder="Enter a number" required>
+                                <div class="clr"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group"> <!-- y-axis end number -->
+                            <label for="yEnd" class="col-xs-6 control-label">Row bottom</label>
+                            <div class="col-xs-6">
+                                <input type="number" class="form-control inputs" id="y_end" placeholder="Enter a number" required>
+                                <span class="clr"></span>
+                            </div>
+                        </div>
+
+                        <div class="form-group"> <!-- x-axis start number -->
+                            <label for="xStart" class="col-xs-6 control-label">Column left</label>
+                            <div class="col-xs-6">
+                                <input type="number" class="form-control inputs" id="x_start" placeholder="Enter a number" required>
+                                <div class="clr"></div>
+                            </div>
+                        </div>
+        
+                        <div class="form-group"> <!-- x-axis end number -->
+                            <label for="xEnd" class="col-xs-6 control-label">Column right</label>
+                            <div class="col-xs-6">
+                                <input type="number" class="form-control inputs" id="x_end" placeholder="Enter a number" required>
+                                <div class="clr"></div>
+                            </div>
+                        </div>
+
+                        <!-- submit button -->
+                        <button type="submit" class="btn btn-primary center-block" id="submission">Submit</button>
+
+                        <center><span id ="warnings"></span></center>
+                        <!-- [warnings and error go here] -->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="well" id="table-placeholder">
+            <!--   [generate table via JavaScript here]   -->
+            <h3><center>Table will display here</center></h3>
+        </div>
+    </div>
+
+    <!-- include the JavaScript at the bottom of the body to load faster -->
+    <script type="module" src="res/script.js"></script>
+
+</body>
+
+</html>
