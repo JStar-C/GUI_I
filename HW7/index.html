@@ -18,12 +18,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="author" content="Joseph Calles">
-    <meta name="description" content="COMP.4610-201 HW6">
+    <meta name="description" content="COMP.4610-201 HW7">
     <meta name="organization" content="UMass Lowell">
     <meta name="keywords" content="UML, HTML5, CSS3, COMP.4610, Bootstrap, JS,
         JavaScript, GUI, CS, UMass Lowell, Computer Science, web development">
 
-    <title>HW6 Interactive Dynamic Table</title>
+    <title>HW7 Interactive Dynamic Table</title>
 
     <link rel="icon" href="res/hex_grid.png" type="image/x-icon"> <!-- tab icon -->
     
@@ -32,7 +32,7 @@
     rel="stylesheet" 
     href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" 
     integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" 
-    crossorigin="anonymous" 
+    crossorigin="anonymous"  
     />
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -51,6 +51,9 @@
 
     <!-- CSS style sheet to override Bootstrap if neccesary -->
     <link rel="stylesheet" type="text/css" href="res/style.css">
+    <link rel="stylesheet" href="jquery-ui.min.css">
+    <link rel="stylesheet" href="jquery-ui.structure.min.css">
+    <link rel="stylesheet" href="jquery-ui.theme.min.css">
 </head>
 
 <body>
@@ -65,15 +68,17 @@
                         <div class="form-group"> <!-- y-axis start number -->
                             <label for="yStart" class="col-xs-6 control-label">Row top</label>
                             <div class="col-xs-6">
-                                <input type="number" class="form-control inputs" id="y_start" placeholder="Enter a number" required>
+                                <div id="y_start_slider"></div>
+                                <input type="number" class="form-control inputs" id="y_start_label" onblur="update_y_start_label()" placeholder="0" required>
                                 <div class="clr"></div>
                             </div>
                         </div>
 
                         <div class="form-group"> <!-- y-axis end number -->
-                            <label for="yEnd" class="col-xs-6 control-label">Row bottom</label>
-                            <div class="col-xs-6">
-                                <input type="number" class="form-control inputs" id="y_end" placeholder="Enter a number" required>
+                            <label for="yEnd" class="col-xs-3 col-sm-6 control-label">Row bottom</label>
+                            <div class="col-xs-9 col-sm-6">
+                                <div id="y_end_slider"></div>
+                                <input type="number" class="form-control inputs" id="y_end_label" onblur="update_y_end_label()" placeholder="0" required>
                                 <span class="clr"></span>
                             </div>
                         </div>
@@ -81,7 +86,8 @@
                         <div class="form-group"> <!-- x-axis start number -->
                             <label for="xStart" class="col-xs-6 control-label">Column left</label>
                             <div class="col-xs-6">
-                                <input type="number" class="form-control inputs" id="x_start" placeholder="Enter a number" required>
+                                <div id="x_start_slider"></div>
+                                <input type="number" class="form-control inputs" id="x_start_label" onblur="update_x_start_label()" placeholder="0" required>
                                 <div class="clr"></div>
                             </div>
                         </div>
@@ -89,7 +95,8 @@
                         <div class="form-group"> <!-- x-axis end number -->
                             <label for="xEnd" class="col-xs-6 control-label">Column right</label>
                             <div class="col-xs-6">
-                                <input type="number" class="form-control inputs" id="x_end" placeholder="Enter a number" required>
+                                <div id="x_end_slider"></div>
+                                <input type="number" class="form-control inputs" id="x_end_label" onblur="update_x_end_label()" placeholder="0" required>
                                 <div class="clr"></div>
                             </div>
                         </div>
@@ -113,7 +120,10 @@
     </div>
 
     <!-- include the JavaScript at the bottom of the body to load faster -->
-    <script type="module" src="res/script.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+    <script src="jquery-ui.min.js"></script>
+    <script src="res/script.js"></script>
 
 </body>
 

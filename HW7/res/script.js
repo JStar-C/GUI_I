@@ -1,29 +1,54 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  *  Joseph Calles
  *  University of Massachusetts --Lowell
- *  COMP.4610-201 HW6 Fall 2020
+ *  COMP.4610-201 HW7 Fall 2020
  *  Filename: https://jstar-c.github.io/GUI_I/HW6/res/script.js
  *  Email: joseph_calles@student.uml.edu
  *  Copyright (c) 2020 by Josph Calles. All rights reserved. May be freely
  *      copied or excerpted for educational purposes with credit to the author.
- *  File created on 11/10/2020.
- *  JavaScript file for HW6 Interactive Dynamic Table
+ *  File created on 11/25/2020.
+ *  JavaScript file for HW7 Interactive Dynamic Table
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-import "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js";
-import "https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js";
+// ----------------------------------------------------------------------------
 
 var errorIsUp    = false; // invalid input error label
 var warningXIsUp = false; // x-axis warning label
 var warningYIsUp = false; // y-axis warning label
 var x_start, y_start, x_end, y_end; // table bounds
+var table;
 
-// source: https://stackoverflow.com/a/10180618
-// Apr 16 '12 at 19:47 Josh
-$.validator.messages.required = 'Please enter some value';
+// initialize slider values
+$("#y_start_label").val(0);
+$("#y_end_label"  ).val(0);
+$("#x_start_label").val(0);
+$("#x_end_label"  ).val(0);
+
+$("#a").html(main_content);
+
+// ----------------------------------------------------------------------------
+
+ /* jQuery tabs */
+
+(function($) {
+    var tabOpts = {
+        active: 0,
+        beforeActivate: function (e, ui) {
+            console.log(ui.newTab.index());
+            table = ui.newTab;
+        }
+    };
+    $("#myTabs").tabs(tabOpts);
+})(jQuery);
+
+// ----------------------------------------------------------------------------
+
+ /* jQuery Validator */
+
+$.validator.messages.required = ''; // removed becuase always valid
 $.validator.messages.digits   = 'Please enter only digits';
 $.validator.messages.number   = 'Please enter a number';
-$.validator.messages.range    = 'Values must be in range (-100, 100)';
+$.validator.messages.range    = 'Values must be in range (-50, 50)';
 
 // a method to check if the X axis is properly ordered
 jQuery.validator.addMethod("OrderedXAxis", function(value, element) {
@@ -38,10 +63,10 @@ jQuery.validator.addMethod("OrderedYAxis", function(value, element) {
 $("#my-form").validate({
     rules: {
         y_start, y_end, x_start, x_end: {
-            required : true,       // all inputs are required
-            number : true,        // all inputs must be numbers
-            digits : true,       // all inputs must be digits
-            range : [-100, 100] // all inputs must fall in the range
+            required : true,     // all inputs are required
+            number   : true,     // all inputs must be numbers
+            digits   : true,     // all inputs must be digits
+            range    : [-50, 50] // all inputs must fall in the range
         },
         warnings: {
             OrderedXAxis : true, // custom addMethod calls 
@@ -49,6 +74,105 @@ $("#my-form").validate({
         }
     }
 });
+
+// ----------------------------------------------------------------------------
+ /* y_start */
+var y_start_sliderOpts = {
+    animate:  true ,
+    disabled: false,
+    range:    false,
+    values:   null ,
+    min:      -50  ,
+    max:       50  ,
+    value:      0  ,
+    step:       1  ,
+    slide: function() {
+        $("#y_start_label").val($("#y_start_slider").slider("value"));
+    }
+};
+
+(function($){
+    $("#y_start_slider").slider(y_start_sliderOpts);
+})(jQuery);
+
+function update_y_start_label() {
+    $("#y_start_slider").slider("value", $("#y_start_label").val());
+}
+
+// ----------------------------------------------------------------------------
+ /* y_end */
+var y_end_sliderOpts = {
+    animate:  true ,
+    disabled: false,
+    range:    false,
+    values:   null ,
+    min:      -50  ,
+    max:       50  ,
+    value:      0  ,
+    step:       1  ,
+    slide: function() {
+        //$("#y_end_label").text($("#y_end_slider").slider("value"));
+        $("#y_end_label").val($("#y_end_slider").slider("value"));
+    }
+};
+
+(function($){
+    $("#y_end_slider").slider(y_end_sliderOpts);
+})(jQuery);
+
+function update_y_end_label() {
+    $("#y_end_slider").slider("value", $("#y_end_label").val());
+}
+
+// ----------------------------------------------------------------------------
+ /* x_start */
+var x_start_sliderOpts = {
+    animate:  true ,
+    disabled: false,
+    range:    false,
+    values:   null ,
+    min:      -50  ,
+    max:       50  ,
+    value:      0  ,
+    step:       1  ,
+    slide: function() {
+        $("#x_start_label").val($("#x_start_slider").slider("value"));
+    }
+};
+
+(function($){
+    $("#x_start_slider").slider(x_start_sliderOpts);
+})(jQuery);
+
+function update_x_start_label() {
+    $("#x_start_slider").slider("value", $("#x_start_label").val());
+}
+
+// ----------------------------------------------------------------------------
+ /* x_end */
+var x_end_sliderOpts = { // slider options
+    animate:  true ,
+    disabled: false,
+    range:    false,
+    values:   null ,
+    min:      -50  ,
+    max:       50  ,
+    value:      0  ,
+    step:       1  ,
+    slide: function(e) {
+        $("#x_end_label").val($("#x_end_slider").slider("value"));
+    }
+};
+
+(function($){ // initialize slider
+    $("#x_end_slider").slider(x_end_sliderOpts);
+})(jQuery);
+
+function update_x_end_label() { // update onblur
+    $("#x_end_slider").slider("value", $("#x_end_label").val());
+}
+
+// ----------------------------------------------------------------------------
 
 // capture the form and see when the user clicks the 'submit' button
 $("#submission").click(getVariables);
@@ -62,21 +186,21 @@ function getVariables(e)
 {
     e.preventDefault(); // to prevent the screen from flashing
 
-    console.log("input submitted")
+    console.log("input submitted");
 
     let userInput;  // used to hold the user's input as a string until it can be parsed
 
     // capture variables from input
-    userInput = $("#y_start").val();
+    userInput = $("#y_start_label").val();
     y_start = (userInput.includes("e") || userInput.includes("E")) ? undefined : parseInt(userInput);
 
-    userInput = $("#y_end"  ).val();
+    userInput = $("#y_end_label"  ).val();
     y_end   = (userInput.includes("e") || userInput.includes("E")) ? undefined : parseInt(userInput);
 
-    userInput = $("#x_start").val(); 
+    userInput = $("#x_start_label").val(); 
     x_start = (userInput.includes("e") || userInput.includes("E")) ? undefined : parseInt(userInput);
 
-    userInput = $("#x_end"  ).val();
+    userInput = $("#x_end_label"  ).val();
     x_end   = (userInput.includes("e") || userInput.includes("E")) ? undefined : parseInt(userInput);
 
     console.log(`user inputs: row(${y_start}-${y_end}) column(${x_start}-${x_end})`);
@@ -194,7 +318,13 @@ function manage_warnings()
  */
 function generate_table()
 {
-    let table = $("#table-placeholder")
+    let selected = $( "#myTabs" ).tabs( "option", "active");
+    console.log(selected);
+    table = $( "#myTabs" ).tabs( "option", "active", selected ).find(".table-placeholder");
+    //let table = $("#myTabs").tabs("option", "active");
+    console.log(selected);
+    console.log(table);
+
 
     let xAdder = x_start < x_end ? 1 : -1;
     let yAdder = y_start < y_end ? 1 : -1;
@@ -265,3 +395,4 @@ function post_error()
 
     return;
 }
+

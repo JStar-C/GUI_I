@@ -88,7 +88,7 @@ td:hover:nth-child(even) {
 }
 
 /* validator error messages */
-#y_start-error, #y_end-error, #x_start-error, #x_end-error{
+#y_start_label-error, #y_end_label-error, #x_start_label-error, #x_end_label-error {
     display: inline-block;
     height: 34px;
     color: #337ab7;
@@ -107,3 +107,16 @@ td:hover:nth-child(even) {
 label {
     text-align: right;
 }
+
+#y_start_slider, #y_end_slider, #x_start_slider, #x_end_slider {
+    display: inline-block;
+    width: 200px;
+    position: relative;
+    top: 3px;
+} 
+
+#y_start_label, #y_end_label, #x_start_label, #x_end_label {
+    display: inline-block;
+    margin-left: 0.75em;
+    width: 5em;
+} 

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="jquery-ui.min.css">
+        <link rel="stylesheet" href="jquery-ui.structure.min.css">
+        <link rel="stylesheet" href="jquery-ui.theme.min.css">
+        <title>Slider</title>
+
+        <link 
+        rel="stylesheet" 
+        href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" 
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" 
+        crossorigin="anonymous"  
+        />
+    
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script 
+        src="https://code.jquery.com/jquery-1.12.4.min.js" 
+        integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" 
+        crossorigin="anonymous">
+        </script>
+    
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script 
+        src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" 
+        integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" 
+        crossorigin="anonymous">
+        </script>
+    
+        <!-- CSS style sheet to override Bootstrap if neccesary -->
+        <link rel="stylesheet" type="text/css" href="res/style.css">
+
+    </head>
+    <body>
+        <div class="container">
+            <div class="well">          
+                <div class="row">
+                    <div class="col-xs-10 col-xs-push-1">
+                        <form class="form-horizontal" id="my-form">
+
+                            <div class="form-group"> <!-- y-axis start number -->
+                                <label for="yStart" class="col-xs-6 control-label">Row top</label>
+                                <div class="col-xs-6">
+                                    <div id="y_start_slider"></div>
+                                    <input type="number" class="form-control inputs" id="y_start_label" onblur="update_y_start_label()" placeholder="0" required>
+                                    <div class="clr"></div>
+                                </div>
+                            </div>
+
+                            <div class="form-group"> <!-- y-axis end number -->
+                                <label for="yEnd" class="col-xs-3 col-sm-6 control-label">Row bottom</label>
+                                <div class="col-xs-9 col-sm-6">
+                                    <div id="y_end_slider"></div>
+                                    <input type="number" class="form-control inputs" id="y_end_label" onblur="update_y_end_label()" placeholder="0" required>
+                                    <span class="clr"></span>
+                                </div>
+                            </div>
+
+                            <div class="form-group"> <!-- x-axis start number -->
+                                <label for="xStart" class="col-xs-6 control-label">Column left</label>
+                                <div class="col-xs-6">
+                                    <div id="x_start_slider"></div>
+                                    <input type="number" class="form-control inputs" id="x_start_label" onblur="update_x_start_label()" placeholder="0" required>
+                                    <div class="clr"></div>
+                                </div>
+                            </div>
+            
+                            <div class="form-group"> <!-- x-axis end number -->
+                                <label for="xEnd" class="col-xs-6 control-label">Column right</label>
+                                <div class="col-xs-6">
+                                    <div id="x_end_slider"></div>
+                                    <input type="number" class="form-control inputs" id="x_end_label" onblur="update_x_end_label()" placeholder="0" required>
+                                    <div class="clr"></div>
+                                </div>
+                            </div>
+
+                            <!-- submit button -->
+                            <button type="submit" class="btn btn-primary center-block" id="submission">Submit</button>
+
+                            <center><span id ="warnings"></span></center>
+                            <!-- [warnings and error go here] -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="myTabs">
+            <ul>
+                <li class="tab"><a href="#a">Interactive Dynamic Table</a></li>
+                <li class="tab"><a href="#newTabButton" style="text-align:right;">+</li>
+            </ul>
+            <div id="a"></div>
+            <div id="newTabButton">hello2</div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+        <script src="jquery-ui.min.js"></script>
+        <script src="main_content.js"></script>
+        <script src="res/script.js"></script>
+    </body>
+</html>
