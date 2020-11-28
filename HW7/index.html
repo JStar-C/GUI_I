@@ -66,8 +66,8 @@
                     <form class="form-horizontal" id="my-form">
 
                         <div class="form-group"> <!-- y-axis start number -->
-                            <label for="yStart" class="col-xs-6 control-label">Row top</label>
-                            <div class="col-xs-6">
+                            <label for="yStart" class="col-xs-3 col-sm-5 control-label">Row top</label>
+                            <div class="col-xs-9 col-sm-7">
                                 <div id="y_start_slider"></div>
                                 <input type="number" class="form-control inputs" id="y_start_label" onblur="update_y_start_label()" placeholder="0" required>
                                 <div class="clr"></div>
@@ -75,8 +75,8 @@
                         </div>
 
                         <div class="form-group"> <!-- y-axis end number -->
-                            <label for="yEnd" class="col-xs-3 col-sm-6 control-label">Row bottom</label>
-                            <div class="col-xs-9 col-sm-6">
+                            <label for="yEnd" class="col-xs-3 col-sm-5 control-label">Row bottom</label>
+                            <div class="col-xs-9 col-sm-7">
                                 <div id="y_end_slider"></div>
                                 <input type="number" class="form-control inputs" id="y_end_label" onblur="update_y_end_label()" placeholder="0" required>
                                 <span class="clr"></span>
@@ -84,8 +84,8 @@
                         </div>
 
                         <div class="form-group"> <!-- x-axis start number -->
-                            <label for="xStart" class="col-xs-6 control-label">Column left</label>
-                            <div class="col-xs-6">
+                            <label for="xStart" class="col-xs-3 col-sm-5 control-label">Column left</label>
+                            <div class="col-xs-9 col-sm-7">
                                 <div id="x_start_slider"></div>
                                 <input type="number" class="form-control inputs" id="x_start_label" onblur="update_x_start_label()" placeholder="0" required>
                                 <div class="clr"></div>
@@ -93,8 +93,8 @@
                         </div>
         
                         <div class="form-group"> <!-- x-axis end number -->
-                            <label for="xEnd" class="col-xs-6 control-label">Column right</label>
-                            <div class="col-xs-6">
+                            <label for="xEnd" class="col-xs-3 col-sm-5 control-label">Column right</label>
+                            <div class="col-xs-9 col-sm-7">
                                 <div id="x_end_slider"></div>
                                 <input type="number" class="form-control inputs" id="x_end_label" onblur="update_x_end_label()" placeholder="0" required>
                                 <div class="clr"></div>
@@ -112,11 +112,13 @@
         </div>
     </div>
 
-    <div class="container">
-        <div class="well" id="table-placeholder">
-            <!--   [generate table via JavaScript here]   -->
-            <h3><center>Table will display here</center></h3>
-        </div>
+    <div id="myTabs">
+        <ul>
+            <li class="tab"><a href="#Tab0">Table</a></li>
+            <li class="tab newTabButton"><a href="#newTabButton">+</a></li>
+        </ul>
+        <div id="Tab0"></div>
+        <div id="newTabButton"></div>
     </div>
 
     <!-- include the JavaScript at the bottom of the body to load faster -->

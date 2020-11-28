@@ -10,5 +10,6 @@ See this homework online at: https://jstar-c.github.io/GUI_I/HW7/
 Sources:
 W3Schools     (https://www.w3schools.com/)
 Validator     (https://jqueryvalidation.org/)
+jQuery        (https://jqueryui.com/upgrade-guide/1.9/#deprecated-selected-option-renamed-to-active)
 
 All images used in this assignment were provided by Google Images

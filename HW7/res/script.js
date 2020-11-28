@@ -17,6 +17,7 @@ var warningXIsUp = false; // x-axis warning label
 var warningYIsUp = false; // y-axis warning label
 var x_start, y_start, x_end, y_end; // table bounds
 var table;
+var checker;
 
 // initialize slider values
 $("#y_start_label").val(0);
@@ -24,7 +25,17 @@ $("#y_end_label"  ).val(0);
 $("#x_start_label").val(0);
 $("#x_end_label"  ).val(0);
 
-$("#a").html(main_content);
+// string to hold table content
+const tab_content = `
+        <div class="container">
+            <div class="well table-placeholder">
+                <!--   [generate table via JavaScript here]   -->
+                <h3><center>Table will display here</center></h3>
+            </div>
+        </div>
+    `
+
+$("#Tab0").html(tab_content);
 
 // ----------------------------------------------------------------------------
 
@@ -32,17 +43,32 @@ $("#a").html(main_content);
 
 (function($) {
     var tabOpts = {
-        active: 0,
         beforeActivate: function (e, ui) {
-            console.log(ui.newTab.index());
-            table = ui.newTab;
+            if (ui.newTab.index() == $("#myTabs ul li").length - 1) // when "+"" tab is clicked
+            {
+                console.log("created new tab");
+                $("#myTabs ul .newTabButton") // create new  li for tab
+                    .before(`<li class=\"tab\"><a href=\"#Tab${ui.newTab.index() - 1}\">New Tab</a></li>`);
+                $("#myTabs #newTabButton")    // create new div for tab
+                    .before(`<div id=\"Tab${ui.newTab.index() - 1}\"></div>`);
+                $("#myTabs").tabs("refresh"); // refresh
+            }
+        },
+        activate: function (e, ui) {
+            if (ui.newTab.index() == $("#myTabs ul li").length - 1) // when "+"" tab is clicked
+            {
+                console.log("changed focus")
+                $("#myTabs").tabs("option", "active", $("#myTabs ul li").length - 2); // change active tab
+                $(`#myTabs #Tab${ui.newTab.index() - 1}`).html(tab_content);          // add html content
+                $("#myTabs").tabs("refresh"); // refresh
+            }
         }
     };
-    $("#myTabs").tabs(tabOpts);
+    $("#myTabs").tabs(tabOpts); // initalize the tabs object
 })(jQuery);
 
 // ----------------------------------------------------------------------------
-
+ 
  /* jQuery Validator */
 
 $.validator.messages.required = ''; // removed becuase always valid
@@ -76,8 +102,9 @@ $("#my-form").validate({
 });
 
 // ----------------------------------------------------------------------------
- /* y_start */
-var y_start_sliderOpts = {
+ /* y_start slider */
+
+var y_start_sliderOpts = { // slider options
     animate:  true ,
     disabled: false,
     range:    false,
@@ -91,17 +118,18 @@ var y_start_sliderOpts = {
     }
 };
 
-(function($){
+(function($){ // initialize slider
     $("#y_start_slider").slider(y_start_sliderOpts);
 })(jQuery);
 
-function update_y_start_label() {
+function update_y_start_label() { // update onblur
     $("#y_start_slider").slider("value", $("#y_start_label").val());
 }
 
 // ----------------------------------------------------------------------------
- /* y_end */
-var y_end_sliderOpts = {
+ /* y_end slider */
+
+var y_end_sliderOpts = { // slider options
     animate:  true ,
     disabled: false,
     range:    false,
@@ -111,22 +139,22 @@ var y_end_sliderOpts = {
     value:      0  ,
     step:       1  ,
     slide: function() {
-        //$("#y_end_label").text($("#y_end_slider").slider("value"));
         $("#y_end_label").val($("#y_end_slider").slider("value"));
     }
 };
 
-(function($){
+(function($){ // initialize slider
     $("#y_end_slider").slider(y_end_sliderOpts);
 })(jQuery);
 
-function update_y_end_label() {
+function update_y_end_label() { // update onblur
     $("#y_end_slider").slider("value", $("#y_end_label").val());
 }
 
 // ----------------------------------------------------------------------------
- /* x_start */
-var x_start_sliderOpts = {
+ /* x_start slider */
+
+var x_start_sliderOpts = { // slider options
     animate:  true ,
     disabled: false,
     range:    false,
@@ -140,16 +168,17 @@ var x_start_sliderOpts = {
     }
 };
 
-(function($){
+(function($){ // initialize slider
     $("#x_start_slider").slider(x_start_sliderOpts);
 })(jQuery);
 
-function update_x_start_label() {
+function update_x_start_label() { // update onblur
     $("#x_start_slider").slider("value", $("#x_start_label").val());
 }
 
 // ----------------------------------------------------------------------------
- /* x_end */
+ /* x_end slider */
+
 var x_end_sliderOpts = { // slider options
     animate:  true ,
     disabled: false,
@@ -318,14 +347,15 @@ function manage_warnings()
  */
 function generate_table()
 {
-    let selected = $( "#myTabs" ).tabs( "option", "active");
-    console.log(selected);
-    table = $( "#myTabs" ).tabs( "option", "active", selected ).find(".table-placeholder");
-    //let table = $("#myTabs").tabs("option", "active");
-    console.log(selected);
+    let currentTab = $("#myTabs").tabs("option", "active");
+    console.log(currentTab);
+    table = $(`#myTabs #Tab${currentTab} .table-placeholder`);
     console.log(table);
 
-
+    // this does not work for some reason 
+    //document.getElementById("myTabs").getElementsByTagName('ul')[0].childNodes[currentTab].textContent= `${y_start}<br>${y_end}<br>${x_start}<br>${x_end}`;
+    //document.getElementById("myTabs").getElementsByTagName('ul')[0].childNodes[currentTab].setAttribute("style", "min-width:2em;text-align:right;padding:10px");
+    
     let xAdder = x_start < x_end ? 1 : -1;
     let yAdder = y_start < y_end ? 1 : -1;
 

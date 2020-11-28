@@ -18,7 +18,7 @@ html {
     clear: both;
 }
 
-#table-placeholder {
+.table-placeholder {
     height: 300px;
     overflow: scroll;
     scroll-behavior: smooth;
@@ -108,6 +108,7 @@ label {
     text-align: right;
 }
 
+/* set slider length and correct offset */
 #y_start_slider, #y_end_slider, #x_start_slider, #x_end_slider {
     display: inline-block;
     width: 200px;
@@ -115,8 +116,15 @@ label {
     top: 3px;
 } 
 
+/* make textfields appear inline */
 #y_start_label, #y_end_label, #x_start_label, #x_end_label {
     display: inline-block;
     margin-left: 0.75em;
     width: 5em;
 } 
+
+/* override default style */
+#myTabs a:focus, a:hover {
+    text-decoration: none;
+}
+
