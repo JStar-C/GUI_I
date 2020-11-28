@@ -2,7 +2,7 @@
  *  Joseph Calles
  *  University of Massachusetts --Lowell
  *  COMP.4610-201 HW7 Fall 2020
- *  Filename: https://jstar-c.github.io/GUI_I/HW6/res/script.js
+ *  Filename: https://jstar-c.github.io/GUI_I/HW7/res/script.js
  *  Email: joseph_calles@student.uml.edu
  *  Copyright (c) 2020 by Josph Calles. All rights reserved. May be freely
  *      copied or excerpted for educational purposes with credit to the author.
@@ -35,6 +35,7 @@ const tab_content = `
         </div>
     `
 
+// create first tab
 $("#Tab0").html(tab_content);
 
 // ----------------------------------------------------------------------------
@@ -232,7 +233,7 @@ function getVariables(e)
     userInput = $("#x_end_label"  ).val();
     x_end   = (userInput.includes("e") || userInput.includes("E")) ? undefined : parseInt(userInput);
 
-    console.log(`user inputs: row(${y_start}-${y_end}) column(${x_start}-${x_end})`);
+    console.log(`user inputs: row(${y_start} ${y_end}) column(${x_start} ${x_end})`);
 
     if (check_for_validity()) // if the user's input are valid then ...
     {
@@ -348,9 +349,9 @@ function manage_warnings()
 function generate_table()
 {
     let currentTab = $("#myTabs").tabs("option", "active");
-    console.log(currentTab);
+    //console.log(currentTab);
     table = $(`#myTabs #Tab${currentTab} .table-placeholder`);
-    console.log(table);
+    //console.log(table);
 
     // this does not work for some reason 
     //document.getElementById("myTabs").getElementsByTagName('ul')[0].childNodes[currentTab].textContent= `${y_start}<br>${y_end}<br>${x_start}<br>${x_end}`;
