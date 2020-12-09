@@ -1,0 +1,104 @@
+<!-- ---------------------------------------------------------------------- --
+  - Joseph Calles
+  - University of Massachusetts --Lowell
+  - COMP.4610-201 HW8 Fall 2020
+  - Filename: https://jstar-c.github.io/GUI_I/HW8/index.html
+  - Email: joseph_calles@student.uml.edu
+  - Copyright (c) 2020 by Josph Calles. All rights reserved. May be freely
+  -     copied or excerpted for educational purposes with credit to the author.
+  - File created on 11/28/2020.
+  - HTML file for HW8 Interactive Dynamic Table
+  -- ---------------------------------------------------------------------- -->
+
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+<head>
+    <!-- metadata -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Joseph Calles">
+    <meta name="description" content="COMP.4610-201 HW8">
+    <meta name="organization" content="UMass Lowell">
+    <meta name="keywords" content="UML, HTML5, CSS3, COMP.4610, Bootstrap, JS,
+        JavaScript, jQuery, GUI, CS, UMass Lowell, Computer Science, 
+        web development, scrabble, drag-and-drop">
+
+    <title>HW8 Scrabble</title>
+
+    <!-- tab icon -->
+    <link rel="icon" type="image/x-icon" href="images/scrabble_tiles/Scrabble_Tile_S.jpg">
+
+    <!-- CSS files -->
+    <link rel="stylesheet" type="text/css" href="res/css/style.css">
+    <link rel="stylesheet" type="text/css" href="res/css/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="res/css/jquery-ui.structure.min.css">
+    <link rel="stylesheet" type="text/css" href="res/css/jquery-ui.theme.min.css">
+</head>
+
+<body>
+    <center>
+
+    <div id="board"> <!-- board of dropable spaces -->
+        <img src="images/scrabble_tiles/double_word_score.png"   id="space0" class="space ui-widget-content">
+        <img src="images/scrabble_tiles/blank_square.png"        id="space1" class="space ui-widget-content">
+        <img src="images/scrabble_tiles/double_letter_score.png" id="space2" class="space ui-widget-content">
+        <img src="images/scrabble_tiles/blank_square.png"        id="space3" class="space ui-widget-content">
+        <img src="images/scrabble_tiles/triple_letter_score.png" id="space4" class="space ui-widget-content">
+        <img src="images/scrabble_tiles/blank_square.png"        id="space5" class="space ui-widget-content">
+        <img src="images/scrabble_tiles/triple_word_score.png"   id="space6" class="space ui-widget-content">
+    </div>
+
+    <br>
+
+    <div id="rack"> <!-- rack of dragable tiles -->
+        <img src="images/scrabble_tiles/Scrabble_Tile_A.jpg" id="tile0" class="tile ui-widget-content">
+        <img src="images/scrabble_tiles/Scrabble_Tile_B.jpg" id="tile1" class="tile ui-widget-content">
+        <img src="images/scrabble_tiles/Scrabble_Tile_C.jpg" id="tile2" class="tile ui-widget-content">
+        <img src="images/scrabble_tiles/Scrabble_Tile_D.jpg" id="tile3" class="tile ui-widget-content">
+        <img src="images/scrabble_tiles/Scrabble_Tile_E.jpg" id="tile4" class="tile ui-widget-content">
+        <img src="images/scrabble_tiles/Scrabble_Tile_F.jpg" id="tile5" class="tile ui-widget-content">
+        <img src="images/scrabble_tiles/Scrabble_Tile_G.jpg" id="tile6" class="tile ui-widget-content">
+    </div>
+
+    <br>
+
+    <div id="user-interface"> <!-- series of buttons and labels for user interaction -->
+
+        <div>
+            <!-- submit button -->
+            <button id="submit" type="button" onclick="submitFunction()">Submit</button>
+        </div>
+
+        <div>
+            <!-- scorebox -->
+            <span id="score">b</span>
+        </div>
+
+        <div>
+            <!-- placeholder1 -->
+            <span id="placeholder1">c</span>
+        </div>
+
+        <div>
+            <!-- placeholder2 -->
+            <span id="placeholder2">d</span>
+        </div>
+
+    </div>
+
+    <br>
+
+    </center>
+
+    <!-- JavaScript files -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="res/js/Scrabble_Pieces_AssociativeArray_Jesse.js"></script>
+    <script type="text/javascript" src="res/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="res/js/script.js"></script>
+
+</body>
+
+</html>

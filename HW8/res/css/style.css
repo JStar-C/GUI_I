@@ -1,0 +1,38 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *  Joseph Calles
+ *  University of Massachusetts --Lowell
+ *  COMP.4610-201 HW8 Fall 2020
+ *  Filename: https://jstar-c.github.io/GUI_I/HW8/res/css/style.css
+ *  Email: joseph_calles@student.uml.edu
+ *  Copyright (c) 2020 by Josph Calles. All rights reserved. May be freely
+ *      copied or excerpted for educational purposes with credit to the author.
+ *  File created on 11/28/2020.
+ *  CSS file for HW8 Scrabble
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+ 
+ .space {
+    height: 110px;
+    width:  100px;
+ }
+
+ .tile {
+    height: 99px;
+    width:  90px;
+ }
+
+ #rack {
+    width: 80%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-image: url("/images/scrabble-tile-holder.png");
+    background-size: cover;
+ }
+
+ #user-interface {
+    width: 80%;
+ }
+
+ #user-interface div {
+    display: inline-block;
+    width: 24%;
+ }
