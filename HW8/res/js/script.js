@@ -29,7 +29,7 @@ $(document).ready(function () {
 
     for(let i = 0; i < 7; ++i)
     {
-        let letter = get_random_letter_from_bag() == "_";
+        let letter = get_random_letter_from_bag();
         if(letter == "_") 
         { 
             letter = "Blank"; 
@@ -44,6 +44,7 @@ function get_random_letter_from_bag() {
         let index  = Math.floor(Math.random() * 1000000) % bag.length;
         let letter = bag[index];
         bag.splice(index, 1);
+        console.log(letter);
         return letter;
     }
     else 
