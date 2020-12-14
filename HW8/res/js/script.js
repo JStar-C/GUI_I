@@ -12,9 +12,11 @@
 
 var letter_array = ['\0', '\0', '\0', '\0', '\0', '\0', '\0'];
 var bag = [];
+var total_score = 0;
 
 // on page load
 $(document).ready(function () {
+
     // initalize the bag of tiles
     for(let i = 0; i < 27; ++i)
     {
@@ -24,13 +26,30 @@ $(document).ready(function () {
             bag.push(ScrabbleTiles[i].letter);
         }
     }
+
+    for(let i = 0; i < 7; ++i)
+    {
+        let letter = get_random_letter_from_bag() == "_";
+        if(letter == "_") 
+        { 
+            letter = "Blank"; 
+        }
+        $(`#tile${i}`).attr("src", `images/scrabble_tiles/Scrabble_Tile_${letter}.jpg`);
+    }
 });
 
 function get_random_letter_from_bag() {
-    let index  = Math.floor(Math.random() * 1000000) % bag.length;
-    let letter = bag[index];
-    bag.splice(index, 1);
-    return letter;
+    if(bag.length > 0)
+    {
+        let index  = Math.floor(Math.random() * 1000000) % bag.length;
+        let letter = bag[index];
+        bag.splice(index, 1);
+        return letter;
+    }
+    else 
+    {
+        return "BAG_IS_EMPTY";
+    }
 }
 
 // ----------------------------------------------------------------------------
@@ -38,7 +57,7 @@ function get_random_letter_from_bag() {
 
 // options
 var draggableOpts = {
-    //snap: true
+    revert: false
 }
 
 // initalization 
@@ -71,7 +90,6 @@ function droppableEventDrop( event, ui ) {
 
 // options
 var droppableOpts = {
-    refreshPositions: true,
     drop: droppableEventDrop
 }
  
@@ -123,12 +141,21 @@ function submitFunction() {
             } 
         }
     }
+
+    // reset the letter array
+    for(let i = 0; i < 7; ++i)
+    {
+        letter_array[i] = '\0';
+    }
+
+    // calculate word and total score
     sum *= word_multiplier;
-    console.log(sum);
+    total_score += sum;
 
-    // write sum to HTML DOM
+    // display word and total score
+    $("#w-score").text(`Word score: ${sum}`);
+    $("#t-score").text(`Total score: ${total_score}`);
+
+    //
+
 }
-
-//window.addEventListener('resize', function() {
-//
-//});
