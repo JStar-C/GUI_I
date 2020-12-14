@@ -11,6 +11,8 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 var letter_array = ['\0', '\0', '\0', '\0', '\0', '\0', '\0'];
+var original_positions = [];
+var used_tiles = [];
 var bag = [];
 var total_score = 0;
 
@@ -35,6 +37,11 @@ $(document).ready(function () {
             letter = "Blank"; 
         }
         $(`#tile${i}`).attr("src", `images/scrabble_tiles/Scrabble_Tile_${letter}.jpg`);
+    }
+
+    for(let i = 0; i < 7; ++i)
+    {
+        original_positions.push($(`#tile${i}`).position());
     }
 });
 
@@ -76,7 +83,6 @@ $(function() {
 
 // event helper
 function droppableEventDrop( event, ui ) {
-
     // https://stackoverflow.com/questions/15343385/
     // change the position of the tile to "snap" into the space
     ui.draggable.position({of:$(this), my:'left+5 top+5', at:'left top'});
@@ -84,6 +90,8 @@ function droppableEventDrop( event, ui ) {
     let tile_id  = parseInt(ui.draggable[0].id.replace("tile", ""));
     let tile_val = ui.draggable[0].src.charAt(ui.draggable[0].src.indexOf(".jpg") - 1);
     let space_id = parseInt($(this)[0].id.replace("space", ""));
+
+    used_tiles.push(tile_id);
 
     console.log(`TILE PLACED | tile_id:${tile_id} | tile_val:${tile_val} | space_id:${space_id}`);
     letter_array[space_id] = tile_val;
@@ -106,7 +114,7 @@ $(function() {
 // onClick of submit
 function submitFunction() {
     console.log("submitted");
-    //let widget = $("#space1").droppable("widget");
+
     let word_multiplier = 1;
     let points = 0;
     let sum = 0;
@@ -158,5 +166,28 @@ function submitFunction() {
     $("#t-score").text(`Total score: ${total_score}`);
 
     //
-
+    /*
+    for(let i = 0; i < 7; ++i)
+    {
+        $(`#tile${i}`).position({
+            my: `left+${original_positions[i].left} top+${original_positions[i].top}`,
+            at: "left top",
+            of: "document"
+          });
+          //({"top" : original_positions[i].top, "left" : original_positions[i].left});
+    }
+    */
+    for(;used_tiles.length > 0;)
+    {
+        let tile_id = used_tiles.pop();
+        let letter = get_random_letter_from_bag();
+        if(letter != "BAG_IS_EMPTY")
+        {
+            $(`#tile${tile_id}`).attr("src", `images/scrabble_tiles/Scrabble_Tile_${letter}.jpg`);
+        }
+        else
+        {
+            $(`#tile${tile_id}`).remove();
+        }
+    }
 }
