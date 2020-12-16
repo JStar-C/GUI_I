@@ -5,6 +5,7 @@
  *  updated by JMH on November 21, 2015 at 10:27 AM
  *  updated by JMH on November 25, 2015 at 10:58 AM to add the blank tile
  *  updated by JMH on November 27, 2015 at 10:22 AM to add original-distribution
+ *  updated by JRC on December 14, 2020 at 04:32 PM to modify for use
  */
  
 var ScrabbleTiles = [
