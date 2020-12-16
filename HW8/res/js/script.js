@@ -108,7 +108,10 @@ function droppableEventDrop( event, ui ) {
         // change the position of the tile to "snap" into the space
         ui.draggable.position({of:$(this), my:'left+5 top+5', at:'left top'});
 
+        // add letter to internal representation
         letter_array[space_id] = tile_val;
+
+        // add tile_id to list of used IDs
         used_tiles.push(tile_id);
 
         console.log(`TILE PLACED | tile_id:${tile_id} | tile_val:${tile_val} | space_id:${space_id}`);
